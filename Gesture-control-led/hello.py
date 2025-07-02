@@ -1,8 +1,8 @@
 import cv2
 import controller as cnt
 from cvzone.HandTrackingModule import HandDetector
-WIDTH       = 1040
-HEIGHT      = 600
+WIDTH       = 1240
+HEIGHT      = 800
 def on_mouse(event, x, y, flags, param):
     if event == cv2.EVENT_LBUTTONDOWN:
         print(f"🖱️ Click at: ({x}, {y})")
@@ -30,15 +30,15 @@ while True:
                 count += 1      
 
         cnt.led(fingerUp)
-        cv2.putText(frame, f'Finger count: {count}', (0, 50), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 255, 255), 1, cv2.LINE_AA)
-        
-        cnt.reset_leds()
-
+        cv2.putText(frame, f'Finger count: {count}', (0, 50), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 0, 255), 1, cv2.LINE_AA)
+    
     cv2.imshow("frame", img)
     k = cv2.waitKey(1)
 
     if (k == ord("q")) or k == 27:
         break
 
+
+cnt.reset_leds()
 video.release()
 cv2.destroyAllWindows()
