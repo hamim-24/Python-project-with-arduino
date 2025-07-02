@@ -3,8 +3,8 @@ import cv2
 import time
 
 # Connect to Arduino (update your port)
-#arduino = serial.Serial(port='/dev/ttyUSB0', baudrate=9600, timeout=1)
-#time.sleep(2)  # Give time for Arduino to reboot
+arduino = serial.Serial(port='/dev/ttyUSB0', baudrate=9600, timeout=1)
+time.sleep(2)  # Give time for Arduino to reboot
 
 # Load OpenCV face detector
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
@@ -19,10 +19,10 @@ while True:
 
     if len(faces) > 0:
         print("Face Detected 😎")
-        #arduino.write(b'1')  # Send ON signal
+        arduino.write(b'1')  # Send ON signal
     else:
         print("No Face 😴")
-        #arduino.write(b'0')  # Send OFF signal
+        arduino.write(b'0')  # Send OFF signal
 
     # Optional: Show webcam feed
     for (x, y, w, h) in faces:
