@@ -1,5 +1,5 @@
 import cv2
-#import serial 
+import serial 
 import time
 
 # Connect to Arduino (update your port)
