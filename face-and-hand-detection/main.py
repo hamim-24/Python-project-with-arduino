@@ -24,6 +24,8 @@ while True:
 
     if len(faces) > 0: # If faces are detected
         print("Face Detected 😎")
+    else:
+        print("No Face Detected 😢")
 
     if hands: # If hands are detected
         print("Hand Detected 🖐️")
@@ -31,6 +33,9 @@ while True:
         fingerUp = detector.fingersUp(lmList) # Check which fingers are up
         count = sum(fingerUp) # Count the number of fingers that are up
         cv2.putText(frame, f'Finger count: {count}', (0, 50), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 0, 255), 1, cv2.LINE_AA)
+    else:
+        print("No Hand Detected 🙌")
+        count = 0
 
     cv2.imshow("Face + Hand Detector", frame) # Show the processed frame
 
